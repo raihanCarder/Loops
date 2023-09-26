@@ -11,10 +11,56 @@ namespace Loops_Assignment
     {
         static void Main(string[] args)
         {   // Raihan Carder        
-            //Prompter();
-            //PercentPassing();
-            //OddSum();
-            RandomNumbers();
+            
+            string project;
+            bool quit = false;
+
+            Console.Title = "Topic 6 - Loops";
+            while (!quit)
+            {
+                Console.Clear();
+
+                Console.WriteLine("Main Menu");
+                Console.WriteLine();
+                Console.WriteLine("Select one of the following projectsl:");
+                Console.WriteLine("1. Prompter");
+                Console.WriteLine("2. Percent Passing");
+                Console.WriteLine("3. Oddsum");
+                Console.WriteLine("4. Random Numbers");
+                Console.WriteLine("5. Quit");
+                Console.Write("Ignoring the numbers what would you like to see: ");
+                project = Console.ReadLine().ToUpper().Trim();
+                Console.Clear();
+
+                if (project == "PROMPTER")
+                {
+                    
+                    Prompter();
+                }
+                else if (project == "PERCENT PASSING")
+                {
+                    PercentPassing();
+                }
+                else if (project == "ODDSUM")
+                {
+                    OddSum();
+                }
+                else if (project == "RANDOM NUMBERS")
+                {
+                    RandomNumbers();
+                }
+                else if (project == "QUIT")
+                {
+                    quit = true;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid, choice click enter to continue.");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+            }
+
             Console.ReadLine();
         }
 
@@ -98,15 +144,13 @@ namespace Loops_Assignment
                     Console.Write("ERROR, How many tests are you going to enter: ");
                 }
             }
-            validAmount = false;
 
             for (int i = 1; i < testsAmount+1; i++)
             {
                 Console.Write($"Enter test mark {i}: ");
                 if (double.TryParse(Console.ReadLine(), out testScore) && testScore > 0 && testScore <= 100)
                 {
-                    testsAmount++;
-
+   
                     if (testScore > 70)
                     {
                        aboveSeventy ++;
