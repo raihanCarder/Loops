@@ -28,7 +28,7 @@ namespace Loops_Assignment
                 Console.WriteLine("3. Oddsum");
                 Console.WriteLine("4. Random Numbers");
                 Console.WriteLine("5. Quit");
-                Console.Write("Ignoring the numbers what would you like to see: ");
+                Console.Write("Ignoring the numbers type what you would like to see: ");
                 project = Console.ReadLine().ToUpper().Trim();
                 Console.Clear();
 
@@ -125,7 +125,7 @@ namespace Loops_Assignment
 
         public static void PercentPassing() // Still needs work redo so that user enters numbers first than presses something to end the while loop
         {
-            int testsAmount = 0, aboveSeventy = 0;
+            int testsAmount = 0, aboveSeventy = 0, totalTests = 0;
             double testScore;
             bool validAmount = false;
 
@@ -145,25 +145,29 @@ namespace Loops_Assignment
                 }
             }
 
-            for (int i = 1; i < testsAmount+1; i++)
+            totalTests = testsAmount;
+
+            for (int i = 1; i < totalTests+1; i++)
             {
                 Console.Write($"Enter test mark {i}: ");
-                if (double.TryParse(Console.ReadLine(), out testScore) && testScore > 0 && testScore <= 100)
+                if (double.TryParse(Console.ReadLine(), out testScore) && testScore >= 0 && testScore <= 100)
                 {
-   
                     if (testScore > 70)
                     {
                        aboveSeventy ++;
                     }
+                    
                 }
                 else
                 {
                     Console.WriteLine("Invalid Entry, input will not be counted.");
+                    testsAmount -= 1;
                 }
             }
-            Console.WriteLine(aboveSeventy);
-            Console.WriteLine(testsAmount);
-            Console.WriteLine($"Your total amount of tests above 70% are: {Convert.ToDouble((aboveSeventy/testsAmount) * 100)}%");
+            
+            Console.WriteLine();
+            Console.WriteLine($"You have inputted {testsAmount} valid tests.");
+            Console.WriteLine($"The pourcentage of tests above 70% are: {(Math.Round((double)aboveSeventy /testsAmount * 100), 2)}%");
             Console.ReadLine();
         }
 
