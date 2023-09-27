@@ -123,7 +123,7 @@ namespace Loops_Assignment
             Console.ReadLine();
         }
 
-        public static void PercentPassing() // Still needs work redo so that user enters numbers first than presses something to end the while loop
+        public static void PercentPassing()
         {
             int testsAmount = 0, aboveSeventy = 0, totalTests = 0;
             double testScore;
